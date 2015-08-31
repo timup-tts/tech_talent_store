@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'storefront/index'
+  root 'storefront#index'
 
   resources :categories
   resources :products
