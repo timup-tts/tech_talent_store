@@ -4,8 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
-
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :brands
+
+  def brands
+    products = Product.all
+    @brands = []
+
+    products.each do |product|
+      unless @brands.include?(product.brand)
+        @brands << product.brand
+      end
+    end
+    return @brands
+  end
 
   protected
 
