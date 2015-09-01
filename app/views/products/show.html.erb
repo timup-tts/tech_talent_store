@@ -30,5 +30,14 @@
   <%= @product.category_id %>
 </p>
 
+<p>
+  <%= form_tag('/add_to_cart') do %>
+    <%= hidden_field_tag :product_id, @product.id %>
+    <p>How Many?</p>
+    <%= number_field_tag :quantity %><br />
+    <%= submit_tag "Buy It!", class: "btn btn-success" %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
