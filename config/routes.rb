@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'store_front/all_items'
+
+  get 'store_front/items_by_category'
+
+  get 'store_front/items_by_brand'
+
   root 'storefront#index'
 
   resources :categories
