@@ -36,8 +36,13 @@
             <p><%= product.description %></p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Purchase</button>
+            <%= form_tag('/add_to_cart') do %>
+              <%= hidden_field_tag :product_id, product.id %>
+              <p>How Many?</p>
+              <%= number_field_tag :quantity %><br />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= submit_tag "Buy It!", class: "btn btn-success" %>
+            <% end %>
           </div>
         </div>
       </div>

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   post 'checkout' => 'cart#checkout'
 
+  get 'checkout' => 'cart#checkout'
+
   resources :line_items
   resources :orders
   devise_for :users
